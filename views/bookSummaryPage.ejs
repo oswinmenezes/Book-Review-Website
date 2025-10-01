@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include("navBar.ejs") %>
+    <div class="box BookCover">
+        <img src="https://covers.openlibrary.org/b/id/<%=data[0].cover_id%>-M.jpg" alt="<%= data[0].book_title%>" class="bookImg">
+        <div class="bookSideDet">
+            <h1>Title:<%= data[0].book_title %></h1><br/>
+            <h2>Author:<%=data[0].author_name%></h2><br/>
+            <h2>Rating:<%= data[0].rating %></h2><br/>
+            <h2>Genre:<%=data[0].genre%></h2><br/>
+            <div class="summaryBtn">
+                <a href="/edit/<%=data[0].id%>" name="edit" id="editBtn" class="btn">Edit</a>
+                <a href="/delete/<%=data[0].id%>" name="delete" id="deleteBtn" class="btn">Delete</a>
+            </div>
+        </div>
+        <pre class="summaryPageContent"><%= data[0].summary %></pre>
+    </div>
+    <script src="/action.js" charset="UTF-8"></script>
+</body>
+</html>

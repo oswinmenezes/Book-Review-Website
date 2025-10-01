@@ -1,0 +1,17 @@
+
+<%if(length>0){%>
+    <% for(let i=0;i<length;i++){ %>
+        <a href="/book/<%=data[i].id%>" class="cardText"><div class="bookCard">
+            <img src="https://covers.openlibrary.org/b/id/<%=data[i].cover_id%>-M.jpg" alt="<%= data[i].book_title%>" class="bookImg">
+            <!-- you need to review ejs return values  -->
+             <br/>
+            <div class="bookThumbnailInfo">
+                <span>Title:<%= data[i].book_title %></span><br/>
+                <span>Rating:<%= data[i].rating %></span><br/>
+                <span>Genre:<%=data[i].genre%></span>
+            </div>
+        </div></a>
+    <% } %>        
+<% } else{%>
+    <p class="NoReview">No reviews Yet...</p>
+<% } %>

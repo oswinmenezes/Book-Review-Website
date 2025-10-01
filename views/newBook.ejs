@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document  </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include("navBar.ejs") %>
+    <form action="/<%=formAction%>" method="post" class="newBookForm box">
+        <h1 id="createBook"> <%=heading%> </h1>
+        <label class="newBookLabel">Book Name</label>
+        <input type="text" class="newBookInput" placeholder="Enter Book Name" name="bookName" id="bookName" value="<%= data[0].book_title %>" required>
+        
+        <label class="newBookLabel">Author Name</label>
+        <input type="text" class="newBookInput" placeholder="Enter Author Name" name="authorName" id="authorName" value="<%= data[0].author_name %>" required>
+
+        
+        
+        <label for="summary" class="newBookLabel">Summary</label>
+        <textarea name="summary" id="summary" placeholder="Enter Your Book Experience and What you Learnt..." ><%= data[0].summary %></textarea>
+        <label for="rating" class="newBookLabel">Rating(1-10)</label>
+        <input type="number" class="newBookInput" min="1" max="10" id="rating" placeholder="1-10" name="ratingInput" value="<%= data[0].rating%>" >
+        <div class="chooseGenre">
+        <h2>Choose Genre</h2>
+        <br/><br/>
+        <input type="checkbox" name="genre" value="Finance" <%= data[0].genre === 'Finance' ? 'checked' : '' %>>
+        <label for="Finance">Finance</label>
+        <br/>
+        <input type="checkbox" name="genre" value="Self-Discipline" <%= data[0].genre === 'Self-Discipline' ? 'checked' : '' %> >
+        <label for="Self-Discipline">Self-Discipline</label>
+        <br/>
+        <input type="checkbox" name="genre" value="Fantasty"  <%= data[0].genre === 'Fantasty' ? 'checked' : '' %> >
+        <label for="Fantasty">Fantasty</label>
+        <br/>
+        <input type="checkbox" name="genre" value="Religious" <%= data[0].genre === 'Religious' ? 'checked' : '' %> >
+        <label for="Religious">Religious</label>
+        <br/>
+        <input type="checkbox" name="genre" value="Education" <%= data[0].genre === 'Education' ? 'checked' : '' %> >
+        <label for="Education">Education</label>
+        <br/>
+        <input type="checkbox" name="genre" value="Other" <%= data[0].genre === 'Other' ? 'checked' : '' %>>
+        <label for="Other">Other</label>
+        <br/>
+        </div>
+        <button id="newBookBtn"><%=btnCaption%></button>
+    </form>
+    <div class="box">
+        <%- include("footer.ejs") %>
+    </div>
+    <script src="/action.js" charset="UTF-8"></script>
+</body>
+</html>
